@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+:root {
+    --global-height: 100vh;
+    --menu-height: 15vh;
+    --content--height: calc(var(--global-height) - var(--menu-height));
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+a {
+    color: #c678dd;
+}
+
+.homepage {
+    background: linear-gradient(rgba(27, 24, 27, 0.96), #1b181b);
+}
+
+#code {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    color: rgb(212, 212, 212);
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: var(--menu-height);
+}
+
+.menu__title {
+    font-weight: bold;
+    font-size: 35px;
+    letter-spacing: 2px;
+}
+
+.content {
+    height: var(--content--height);
+    display: flex;
+    justify-items: center;
+    align-items: center;
+}
+
+.flex__half {
+    flex: 50%;
+    text-align: center;
+}
+
+.flex__half-text {
+    font-size: 25px;
+    text-align: center;
+}
+
+.flex__half-text h1 {
+    word-spacing: 2px;
+}
+
+.flex__half-primary-text {
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 25px;
+}
+
+.generator {
+    min-height: var(--content--height);
+    background: #252525;
+    position: relative;
+    border-top: 1px solid rgba(0,0,0,0.6);
+}
+
+.generator__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: var(--content--height);
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.generator__form form p {
+    font-size: 17px;
+    margin-bottom: 20px;
+}
+
+.generator__form form {
+    width: 80vw;
+}
+
+footer {
+    width: 100%;
+    padding: 10px;
+    color: #aeaeae;
+    margin-top: 20px;
+    background: #2d2d2d;
+    border-top: 1px solid rgba(0,0,0,0.6);
+}
+
+.footer__left {
+    text-align: left;
+    display: inline-block;
+    font-style: italic;
+}
+
+.footer__right {
+    float: right;
+}
+
+.form-control {
+    width: 100%;
+}
+
+.input-group {
+    margin: 5px;
+}
+
+.mt-2 {
+    margin-top: 15px;
+}
