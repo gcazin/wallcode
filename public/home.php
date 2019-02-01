@@ -7,7 +7,6 @@ require '../app/App.php';
 require '../app/Autoloader.php';
 Autoloader::register();
 
-require '../vendor/autoload.php';
 ?>
 
 <!DOCTYPE html>
@@ -18,13 +17,14 @@ require '../vendor/autoload.php';
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/computer.css">
     <link rel="stylesheet" href="css/buttons.css">
     <link rel="stylesheet" type="text/css" href="css/hljs/default.css">
     <link rel=stylesheet href="js/codemirror/lib/codemirror.css">
     <link rel="stylesheet" href="css/inputs.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 <div class="container">
@@ -39,6 +39,7 @@ require '../vendor/autoload.php';
             <div class="flex__half-text">
                 <div class="flex__half-primary-text">
                     <h1>Make your own custom wallpaper</h1>
+                    <p>You want something unique for your desktop wallpaper? This generator is right for you!</p>
                 </div>
                 <a class="btn btn-outline-danger btn-lg" href="#wallpaper" role="button">Generate wallpaper</a>
             </div>
@@ -65,9 +66,15 @@ require '../vendor/autoload.php';
                     <textarea name="code" id="generator" placeholder="Type your code here..."></textarea>
                 </div>
                 <div class="input-group mt-2">
-                    <select class="form-control" name="language">
-                        <option value="html">HTML</option>
-                        <option value="php" selected>PHP</option>
+                    <select class="form-control js-example-basic-single" name="language">
+                        <?php
+                        foreach (new DirectoryIterator('../app/Highlight/languages/') as $file) {
+                            if ($file->isFile()) {
+                                $filename = explode('.', $file->getFilename());
+                                echo '<option value="'.$filename[0].'">'.$filename[0].'</option>';
+                            }
+                        }
+                        ?>
                     </select>
                 </div>
                 <div class="input-group mt-2">
@@ -92,19 +99,22 @@ require '../vendor/autoload.php';
 <script src="js/codemirror/addon/edit/matchbrackets.js"></script>
 <script src="js/codemirror/doc/activebookmark.js"></script>
 <script src="js/codemirror/addon/display/placeholder.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 <script>
     var editor = CodeMirror.fromTextArea(document.getElementById("generator"), {
         lineNumbers: true,
         mode: "text/x-php",
         matchBrackets: true,
-        placeholder: "Type your code here..."
+        placeholder: "Type your code here...",
+        maxHighlightLength: 100
     });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
-        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-        crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2();
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 </body>
 </html>

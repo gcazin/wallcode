@@ -13,14 +13,9 @@ require_once '../app/Highlight/Autoloader.php';
 spl_autoload_register("Highlight\\Autoloader::load");
 
 $hl = new Highlighter();
-
-if (isset($_POST)) {
-    if (isset($_POST['code']) && isset($_POST['language'])) {
         $code = $_POST['code'];
         $language = $_POST['language'];
         $highlight = $hl->highlight($language, $code);
-    }
-}
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +32,7 @@ if (isset($_POST)) {
 </head>
 <body>
 <pre id="code" style="background: #1B1B1B;">
-    <code class="hljs <?= $highlight->language ?>"><?= $highlight->value ?></code>
+    <code class="hljs <?= $highlight->language; ?>"><?= $highlight->value; ?></code>
 </pre>
 <button type="button" style="position: absolute; right: 10px; bottom: 10px;" class="btn btn-secondary btn-sm"
         data-toggle="modal" data-target="#wallpaper" onclick="capture()">Save wallpaper
@@ -55,7 +50,7 @@ if (isset($_POST)) {
             </div>
             <div class="modal-body" id="capture"></div>
             <div class="modal-footer">
-                <a id="download" download="myImage.jpg" href="" onclick="download_img(this);">Download</a>
+                <a id="download" href="" onclick="download_img(this);">Download</a>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
             </div>
         </div>
@@ -63,15 +58,9 @@ if (isset($_POST)) {
 </div>
 <script src="js/jquery.js"></script>
 <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
-        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
-        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
-        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
 <script type="text/javascript">
     function capture() {
         html2canvas(document.getElementById('code')).then(function (canvas) {
@@ -83,7 +72,7 @@ if (isset($_POST)) {
     };
 
     download_img = function(el) {
-        var image = canvas.toDataURL("image/jpg");
+        var image = canvas.toDataURL("image/jpg", 0.1);
         el.href = image;
     };
 </script>
