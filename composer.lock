@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "30d6d63ec0ce8b0412a6aceeaff1548c",
+    "content-hash": "9546fabb15e9a3751521037ae100c11c",
     "packages": [
         {
             "name": "tinymce/tinymce",
-            "version": "4.9.1",
+            "version": "7.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tinymce/tinymce-dist.git",
-                "reference": "d8e62a36a305bf042477f5f02eb5976e4a5330a3"
+                "reference": "c011b5164178ac5224e658bf2aed713479fc78ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tinymce/tinymce-dist/zipball/d8e62a36a305bf042477f5f02eb5976e4a5330a3",
-                "reference": "d8e62a36a305bf042477f5f02eb5976e4a5330a3",
+                "url": "https://api.github.com/repos/tinymce/tinymce-dist/zipball/c011b5164178ac5224e658bf2aed713479fc78ae",
+                "reference": "c011b5164178ac5224e658bf2aed713479fc78ae",
                 "shasum": ""
             },
             "type": "component",
@@ -26,31 +26,44 @@
                     "scripts": [
                         "tinymce.js",
                         "plugins/*/plugin.js",
-                        "themes/*/theme.js"
+                        "themes/*/theme.js",
+                        "models/*/model.js",
+                        "icons/*/icons.js"
                     ],
                     "files": [
                         "tinymce.min.js",
                         "plugins/*/plugin.min.js",
                         "themes/*/theme.min.js",
-                        "skins/**"
+                        "models/*/model.min.js",
+                        "skins/**",
+                        "icons/*/icons.min.js"
                     ]
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "LGPL-2.1-only"
+                "GPL-2.0-or-later"
             ],
             "description": "Web based JavaScript HTML WYSIWYG editor control.",
-            "homepage": "http://www.tinymce.com",
+            "homepage": "https://www.tiny.cloud/",
             "keywords": [
-                "editor",
+                "contenteditable",
+                "editing",
                 "html",
                 "javascript",
+                "rich editor",
+                "rich text",
+                "rich text editor",
                 "richtext",
+                "rte",
+                "text",
                 "tinymce",
                 "wysiwyg"
             ],
-            "time": "2018-12-04T14:13:57+00:00"
+            "support": {
+                "source": "https://github.com/tinymce/tinymce-dist/tree/7.0.0"
+            },
+            "time": "2024-03-20T05:46:56+00:00"
         }
     ],
     "packages-dev": [],
@@ -60,5 +73,6 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
 }
