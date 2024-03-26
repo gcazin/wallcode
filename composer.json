@@ -1,5 +1,5 @@
 {
     "require": {
-        "tinymce/tinymce": "^4.9"
+        "tinymce/tinymce": "^7.0"
     }
 }
